@@ -43,3 +43,13 @@ for i in range(codons-1):
     results += codon_diki[str(s[0:3])]
     s = s[3:]
 print(results)
+
+# Finding a Motif in DNA
+s1 = input()
+s2 = input()
+lens2 = len(s2)
+results = []
+for i in range(len(s1)-lens2+1):
+    if (s1[i:i+lens2]) == s2:
+        results += [str(i+1)]
+print(*results)
