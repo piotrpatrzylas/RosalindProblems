@@ -53,3 +53,37 @@ for i in range(len(s1)-lens2+1):
     if (s1[i:i+lens2]) == s2:
         results += [str(i+1)]
 print(*results)
+
+# Computing GC Content
+file = open("/home/piotr/Desktop/ros.txt", "r")
+text = file.read().splitlines()
+dna_no = 0
+indices = []
+for i in range(len(text)):
+    if ">" in text[i]:
+        dna_no += 1
+        indices += [i]
+diki = {}
+def cg(s):
+    occur = 0
+    for letter in s:
+        if letter == "C" or letter == "G":
+            occur += 1
+    return round((occur / len(s) * 100), 10)
+
+
+for i in range(dna_no):
+    if i == list(range(dna_no))[-1]:
+        diki[text[indices[i]]] = ["". join(text[indices[i]+1:])]
+        diki[text[indices[i]]] = diki[text[indices[i]]][0]
+    else:
+        diki[text[indices[i]]] = ["". join(text[indices[i]+1:indices[i+1]])]
+        diki[text[indices[i]]] = diki[text[indices[i]]][0]
+CG_content = 0
+label = ""
+for key, value in diki.items():
+    if cg(value) > CG_content:
+        CG_content = cg(value)
+        label = key
+        label = label.replace(">", "")
+print(label, "\n", CG_content)
