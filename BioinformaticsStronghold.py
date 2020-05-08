@@ -64,6 +64,8 @@ for i in range(len(text)):
         dna_no += 1
         indices += [i]
 diki = {}
+
+
 def cg(s):
     occur = 0
     for letter in s:
@@ -87,3 +89,28 @@ for key, value in diki.items():
         label = key
         label = label.replace(">", "")
 print(label, "\n", CG_content)
+
+# Rabbits and Recurrence Relations
+
+# Locating Restriction Sites
+with open ("rosalind_revp.txt","r") as file:
+    seq = ''.join(file.read().splitlines()[1:])
+
+
+def palindrome(string):
+    string = string.replace('A', 't').replace('T', 'a').replace('C', 'g').replace('G', 'c').upper()
+    return string
+
+
+def get_seq(string, size):
+    for i in range(len(s)-(size-1)):
+        if s[i:i+size] == palindrome(s[i:i+size])[::-1]:
+            print(i+1, size)
+
+
+def locate_rs(string, lbound, ubound):
+    for i in range(lbound,ubound):
+        get_seq(string, i)
+
+
+locate_rs(seq, 4, 13)
