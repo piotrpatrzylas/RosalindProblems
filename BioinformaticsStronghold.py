@@ -114,3 +114,4 @@ def locate_rs(string, lbound, ubound):
 
 
 locate_rs(seq, 4, 13)
+
