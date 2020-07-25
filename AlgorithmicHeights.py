@@ -47,3 +47,21 @@ for i in range(1, k+1):
         print(maxelement, end=" ", flush=True)
     else:
         print (-1, end = " ", flush=True)
+
+# Insertion sort
+file = open("path-to-a-file", "r")
+msg = file.read().splitlines()
+n = int(msg[0])
+arr = list(map(int, msg[1].split()))
+
+def insort(n, arr):
+    counter = 0
+    for i in range(len(arr)):
+        k = i
+        while k > 0 and arr[k] < arr[k-1]:
+            arr[k], arr[k-1] = arr[k-1], arr[k]
+            k -= 1
+            counter += 1
+    print (counter)
+
+insort(n, arr)
