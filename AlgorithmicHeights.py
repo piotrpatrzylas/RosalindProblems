@@ -34,3 +34,16 @@ def arrbsearch(n, m, Arrn, Arrm):
     print (*results)
 
 arrbsearch(msg[0], msg[1], msg[2], msg[3])
+
+# Majority element
+file = open("path-to-a-file", "r")
+msg = file.read().splitlines()
+k, n = int(msg[0].split()[0]), int(msg[0].split()[1])
+
+for i in range(1, k+1):
+    line = list(map(int, msg[i].split()))
+    maxelement = max(set(line), key=line.count)
+    if line.count(maxelement) >= n//2:
+        print(maxelement, end=" ", flush=True)
+    else:
+        print (-1, end = " ", flush=True)
