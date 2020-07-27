@@ -68,6 +68,7 @@ def insort(n, arr):
             counter += 1
     print(counter)
 
+
 insort(n, arr)
 
 # Merge Two Sorted Arrays
