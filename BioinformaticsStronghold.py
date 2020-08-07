@@ -129,3 +129,11 @@ for i in protein:
     pmass += mmt[i]
 print(pmass)
 
+# Mendel's First Law
+
+AA = 30
+Aa = 17
+aa = 23
+ts = AA + Aa + aa
+probability = ((AA*(AA-1)) + (AA*Aa*2) + (AA*aa*2) + ((Aa * (Aa-1))*0.75) + (Aa*aa)) / ts / (ts-1)
+print(probability)
