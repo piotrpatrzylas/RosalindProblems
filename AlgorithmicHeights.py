@@ -95,7 +95,7 @@ def mergesorted(n, arr1, m, arr2):
     while c2 < m:
         arr3.append(arr2[c2])
         c2 += 1
-    print(*arr3)
+    return(arr3)
 
 
 mergesorted(n, arr1, m, arr2)
