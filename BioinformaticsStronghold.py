@@ -137,3 +137,20 @@ aa = 23
 ts = AA + Aa + aa
 probability = ((AA*(AA-1)) + (AA*Aa*2) + (AA*aa*2) + ((Aa * (Aa-1))*0.75) + (Aa*aa)) / ts / (ts-1)
 print(probability)
+
+# RNA Splicing
+
+file = open("/home/piotr/Desktop/rosalind_splc.txt", "r")
+raw_data = file.read().splitlines()
+DNA_full = raw_data[1]
+for i in range(2, len(raw_data)):
+    if i % 2 == 0:
+        continue
+    else:
+        DNA_full = DNA_full.replace(raw_data[i], "")
+RNA_removed = DNA_full.replace("T", "U")
+protein = ""
+for i in range((len(RNA_removed)//3)-1):
+    protein += codon_diki[RNA_removed[:3]]
+    RNA_removed = RNA_removed[3:]
+print(protein)
